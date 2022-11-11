@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://characters/enemies/raw_assets/monk/schemamonk.glb" type="PackedScene" id=1]
+[ext_resource path="res://characters/HitBox.gd" type="Script" id=2]
+[ext_resource path="res://characters/enemies/Monster.gd" type="Script" id=3]
+[ext_resource path="res://characters/HealthManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=5]
+[ext_resource path="res://characters/enemies/AimAtObject.gd" type="Script" id=6]
+[ext_resource path="res://weapons/DamageArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/enemies/raw_assets/monk/attack_loop.anim" type="Animation" id=8]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 1.10178
+
+[sub_resource type="Animation" id=8]
+resource_name = "postattack"
+length = 0.833333
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Armature/Skeleton:head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, -7.45058e-09, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, -7.45058e-09, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Armature/Skeleton:legs")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("Armature/Skeleton:gun")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0, 0, 0, -6.14673e-08, -3.72529e-09, -2.98023e-08, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, 0.00283443, 0.000535202, 9.39551e-05, 0.999996, 1, 1, 1, 0.133333, 1, 0, 0, 0, 0.0226055, 0.00426848, 0.000749333, 0.999735, 1, 1, 1, 0.2, 1, 0, 0, 0, 0.0628822, 0.0118737, 0.00208461, 0.997948, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0.188876, 0.0356645, 0.00626133, 0.981333, 1, 1, 1, 0.466667, 1, 0, 0, 0, 0.343814, 0.0649205, 0.0113976, 0.936722, 1, 1, 1, 0.6, 1, 0, 0, 0, 0.480651, 0.0907588, 0.0159339, 0.872057, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0.531813, 0.100419, 0.0176299, 0.840702, 1, 1, 1, 0.733333, 1, 0, 0, 0, 0.566433, 0.106957, 0.0187776, 0.816922, 1, 1, 1, 0.8, 1, 0, 0, 0, 0.585181, 0.110497, 0.0193991, 0.803105, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0.588212, 0.111069, 0.0194996, 0.800806, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("Armature/Skeleton:body")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "preattack"
+length = 0.833333
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Armature/Skeleton:head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0.112655, 7.46043e-15, 2.72964e-15, 0.993634, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0.112655, 7.46043e-15, 2.72964e-15, 0.993634, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Armature/Skeleton:legs")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("Armature/Skeleton:gun")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0, 0, 0, 0.588212, 0.111069, 0.0194996, 0.800806, 1, 1, 1, 0.0666667, 1, 0, 0, 0, 0.58594, 0.11064, 0.0194242, 0.802531, 1, 1, 1, 0.133333, 1, 0, 0, 0, 0.569954, 0.107621, 0.0188943, 0.814379, 1, 1, 1, 0.2, 1, 0, 0, 0, 0.536649, 0.101333, 0.0177902, 0.83751, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0.425979, 0.0804354, 0.0141214, 0.90104, 1, 1, 1, 0.466667, 1, 0, 0, 0, 0.275663, 0.0520519, 0.0091384, 0.959801, 1, 1, 1, 0.6, 1, 0, 0, 0, 0.128046, 0.0241783, 0.00424481, 0.991464, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0.0686324, 0.0129595, 0.00227524, 0.997555, 1, 1, 1, 0.733333, 1, 0, 0, 0, 0.0269203, 0.00508324, 0.000892373, 0.999624, 1, 1, 1, 0.8, 1, 0, 0, 0, 0.00377932, 0.000713605, 0.00012526, 0.999993, 1, 1, 1, 0.833333, 1, 0, 0, 0, -6.14673e-08, -3.72529e-09, -2.98023e-08, 1, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("Armature/Skeleton:body")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk_loop"
+length = 0.833333
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Armature/Skeleton:head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, -7.45058e-09, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, -0.00149873, 0, 0, 0.999999, 1, 1, 1, 0.133333, 1, 0, 0, 0, -0.0111335, 7.08521e-15, 1.85535e-15, 0.999938, 1, 1, 1, 0.333333, 1, 0, 0, 0, -0.0636473, 6.97796e-15, 2.225e-15, 0.997972, 1, 1, 1, 0.4, 1, 0, 0, 0, -0.0718201, 2.97666e-09, -2.62546e-08, 0.997418, 1, 1, 1, 0.466667, 1, 0, 0, 0, -0.0696788, 4.96167e-09, -4.37628e-08, 0.99757, 1, 1, 1, 0.533333, 1, 0, 0, 0, -0.0587457, 4.96335e-09, -4.37777e-08, 0.998273, 1, 1, 1, 0.733333, 1, 0, 0, 0, -0.0108412, 4.96372e-09, -4.37808e-08, 0.999941, 1, 1, 1, 0.8, 1, 0, 0, 0, -0.00163157, 3.97003e-09, -3.50163e-08, 0.999999, 1, 1, 1, 0.833333, 1, 0, 0, 0, -7.45058e-09, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Armature/Skeleton:legs")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1, 0.0666667, 1, 0, 0, 0, 0.000928216, 0, 0, 1, 1, 1, 1, 0.133333, 1, 0, 0, 0, 0.00689428, 0, 0, 0.999976, 1, 1, 1, 0.333333, 1, 0, 0, 0, 0.039421, 0, 0, 0.999223, 1, 1, 1, 0.4, 1, 0, 0, 0, 0.0444913, 0, 0, 0.99901, 1, 1, 1, 0.466667, 1, 0, 0, 0, 0.0431625, 0, 0, 0.999068, 1, 1, 1, 0.533333, 1, 0, 0, 0, 0.036382, 0, 0, 0.999338, 1, 1, 1, 0.733333, 1, 0, 0, 0, 0.00671324, 0, 0, 0.999977, 1, 1, 1, 0.8, 1, 0, 0, 0, 0.00101047, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 7.45058e-09, 0, 0, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("Armature/Skeleton:gun")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, -0.0311386, -0.00547013, 0.0029698, 0.588212, 0.111069, 0.0194996, 0.800806, 1, 1, 1, 0.833333, 1, -0.0311386, -0.00547013, 0.0029698, 0.588212, 0.111069, 0.0194996, 0.800806, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("Armature/Skeleton:body")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.833333, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="Schemamonk" type="KinematicBody"]
+script = ExtResource( 3 )
+attack_range = 10.0
+attack_rate = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="Graphics" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.67324, 0, 0, 0, 1.24762, 0, 0, 0, 1.2383, 0, 0, 0.250848 )
+
+[node name="Skeleton" parent="Graphics/Armature" index="0"]
+bones/1/bound_children = [ NodePath("head") ]
+bones/2/bound_children = [ NodePath("legs") ]
+
+[node name="body" type="BoneAttachment" parent="Graphics/Armature/Skeleton" index="1"]
+
+[node name="HitBox" type="Area" parent="Graphics/Armature/Skeleton/body"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/body/HitBox"]
+transform = Transform( 0.281127, 0, 0, 0, -1.71337e-08, -0.391974, 0, 0.281792, -1.23175e-08, 0.0955598, 0.899964, 0.0480656 )
+shape = SubResource( 2 )
+
+[node name="legs" type="BoneAttachment" parent="Graphics/Armature/Skeleton" index="2"]
+transform = Transform( 1, 0, 0, 0, -0.999033, 0.0439584, 0, -0.0439581, -0.999041, 0.0710194, 0.869863, 0.105139 )
+bone_name = "legs"
+
+[node name="HitBox" type="Area" parent="Graphics/Armature/Skeleton/legs"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Graphics/Armature/Skeleton/legs/HitBox"]
+transform = Transform( 0.362308, 0, 0, 0, -1.39698e-08, -0.391974, 0, 0.310869, -1.11759e-08, 0.0299877, 0.406345, 0.00919593 )
+shape = SubResource( 2 )
+
+[node name="head" type="BoneAttachment" parent="Graphics/Armature/Skeleton" index="3"]
+transform = Transform( 1, -5.33761e-08, 2.32367e-07, -2.48661e-08, 0.945953, 0.324303, -2.37118e-07, -0.324303, 0.945953, 0.0710194, 1.41396, 0.0524815 )
+bone_name = "head"
+
+[node name="HitBox" type="Area" parent="Graphics/Armature/Skeleton/head"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+weak_spot = true
+
+[node name="CollisionShape3" type="CollisionShape" parent="Graphics/Armature/Skeleton/head/HitBox"]
+transform = Transform( 0.177278, -1.69884e-08, -6.82835e-09, 6.31157e-09, -0.0182934, -0.219306, -1.97995e-08, 0.221017, 0.0230662, 0.01594, 0.197639, -0.0361612 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="Graphics" index="1"]
+anims/attack = ExtResource( 8 )
+anims/postattack = SubResource( 8 )
+anims/preattack = SubResource( 3 )
+anims/walk_loop = SubResource( 7 )
+
+[node name="HealthManager" parent="." instance=ExtResource( 4 )]
+max_health = 20
+
+[node name="CharacterMover" parent="." instance=ExtResource( 5 )]
+move_accel = 2
+max_speed = 10
+ignore_rotation = true
+
+[node name="AimAtObject" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08741, -0.161708 )
+script = ExtResource( 6 )
+
+[node name="DamageArea" parent="AimAtObject" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.257381, 2.16815 )
+
+[editable path="Graphics"]

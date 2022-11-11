@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/text.map-40bf4f37ea1244de04b2068d91cc16c3.tres"
+
+[deps]
+
+source_file="res://tbmaps/text.map"
+dest_files=[ "res://.import/text.map-40bf4f37ea1244de04b2068d91cc16c3.tres" ]
+
+[params]
+

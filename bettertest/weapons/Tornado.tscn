@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://weapons/raw_assets/tornado.glb" type="PackedScene" id=1]
+[ext_resource path="res://weapons/Tornado.gd" type="Script" id=3]
+
+[sub_resource type="SphereShape" id=11]
+
+[node name="Tornado" type="KinematicBody"]
+transform = Transform( 1, -2.38419e-07, 0, 2.38419e-07, 1, 0, 0, 0, 1, 0, 1.05506, 0 )
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.175238, 0, 0, 0, 1.21322, 0, 0, 0, 0.237822, 0, 0.277052, 0 )
+shape = SubResource( 11 )
+
+[node name="Graphics" type="Spatial" parent="."]
+
+[node name="tornado" parent="Graphics" instance=ExtResource( 1 )]
+transform = Transform( 0.0646596, 0, 0, 0, 0.220341, 0, 0, 0, 0.08679, 0, -1.10283, 0 )
+
+[node name="DestroyAfterHitTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ShowAfterTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="DestroyAfterHitTimer" to="." method="queue_free"]
+[connection signal="timeout" from="ShowAfterTimer" to="." method="show"]

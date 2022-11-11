@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://effects/Gib.tscn" type="PackedScene" id=1]
+[ext_resource path="res://effects/circle32.png" type="Texture" id=2]
+[ext_resource path="res://effects/Gibs.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 3.84727, 0, 0, Vector2( 1, 0 ), -3.70661, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+direction = Vector3( 0, 1, 0 )
+initial_velocity = 5.0
+scale = 0.2
+scale_curve = SubResource( 3 )
+color = Color( 0.203922, 0, 0, 1 )
+
+[sub_resource type="QuadMesh" id=5]
+
+[node name="Gibs" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Gib" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.687687, 0.207533, -0.100442, -0.201485, 0.694541, 0.0555713, 0.112082, -0.0247868, 0.716167, 0.266184, 0.214715, 0 )
+
+[node name="Gib2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.592314, -0.309865, 0, 0.309865, 0.592314, 0, 0, 0, 0.66847, -0.284272, 0, 0 )
+
+[node name="Gib3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.979077, 0.198075, -0.0466222, -0.203488, 0.953033, -0.224322, 0, 0.229115, 0.973399, 0, 0.119161, 0.19579 )
+
+[node name="Gib4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.962346, -0.138951, 0.233629, 0, 0.859478, 0.511173, -0.271827, -0.491925, 0.827115, 0, 0.255087, -0.268597 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 0.687687, 0.207533, -0.100442, -0.201485, 0.694541, 0.0555713, 0.112082, -0.0247868, 0.716167, 0.266184, 0.214715, 0 )
+material_override = SubResource( 1 )
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.78
+local_coords = false
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )

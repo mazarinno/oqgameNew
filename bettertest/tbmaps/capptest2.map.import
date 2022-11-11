@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/capptest2.map-75ad3d094eac3b115425cb00a2e7b4a2.tres"
+
+[deps]
+
+source_file="res://tbmaps/capptest2.map"
+dest_files=[ "res://.import/capptest2.map-75ad3d094eac3b115425cb00a2e7b4a2.tres" ]
+
+[params]
+

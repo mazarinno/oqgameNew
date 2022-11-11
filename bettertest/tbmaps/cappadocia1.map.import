@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/cappadocia1.map-96e738a2ea6e7e1870806bab7033814f.tres"
+
+[deps]
+
+source_file="res://tbmaps/cappadocia1.map"
+dest_files=[ "res://.import/cappadocia1.map-96e738a2ea6e7e1870806bab7033814f.tres" ]
+
+[params]
+
